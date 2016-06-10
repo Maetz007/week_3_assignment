@@ -1,0 +1,18 @@
+{
+  "name": "week_3_assignment",
+  "version": "1.0.0",
+  "description": "heroku+node+git+js+express challenge!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "keywords": [
+    "week",
+    "three",
+    "3",
+    "assignment"
+  ],
+  "author": "me!",
+  "license": "ISC"
+}
