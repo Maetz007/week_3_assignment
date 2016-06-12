@@ -6,9 +6,11 @@ var calcInput = {
   "z": z
 }; // end calcInput object
 
-$("#calcBtn").on("click", function(){
+$("#calcBtn").css("background-color", "#00DD33").on("click", function(){
   calculate();
 });
+
+ $("#resetBtn").css("background-color", "#CC3300");
 
 function calculate(){
   calcInput.x = $("#x").val();
