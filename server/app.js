@@ -1,0 +1,51 @@
+var express = require("express");
+var app = express();
+var path = require("path");
+var bodyParser=require("body-parser");
+var urlencodedParser = bodyParser.urlencoded( { extended: false } );
+
+app.listen(9001, "localhost", function() {
+  console.log("Listening on port 9001... IT'S OVER 9000!!!");
+});
+
+app.use(express.static("public"));
+
+app.get("/", function(req, res) {
+  res.sendFile( path.resolve("public/index.html") );
+});
+
+app.post("/calcPost", urlencodedParser, function(req, res) {
+  x = parseInt(req.body.x);
+  y = parseInt(req.body.y);
+  z = parseInt(req.body.z);
+// console.log("inputs recieved " + x + y + z);
+  var calcNum = returnCalc(x,y,z);
+  res.send(calcNum.toString());
+  res.end();
+});
+
+function returnCalc(x,y,z){
+  var output = 0;
+
+  switch (z) {
+
+    case 1:
+      output = x + y;
+      break;
+
+    case 2:
+      output = x - y;
+      break;
+
+    case 3:
+      output = x * y;
+      break;
+
+    case 4:
+      output = x / y;
+      break;
+
+    default: console.log("Not a function of this calculator");
+  }
+  return Math.round(output);
+}
