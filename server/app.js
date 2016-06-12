@@ -17,17 +17,17 @@ app.get("/", function(req, res) {
 app.post("/calcPost", urlencodedParser, function(req, res) {
   x = parseInt(req.body.x);
   y = parseInt(req.body.y);
-  z = parseInt(req.body.z);
-// console.log("inputs recieved " + x + y + z);
-  var calcNum = returnCalc(x,y,z);
+  type = parseInt(req.body.type);
+// console.log("inputs recieved " + x + y + type);
+  var calcNum = returnCalc(x,y,type);
   res.send(calcNum.toString());
   res.end();
 });
 
-function returnCalc(x,y,z){
+function returnCalc(x,y,type){
   var output = 0;
 
-  switch (z) {
+  switch (type) {
 
     case 1:
       output = x + y;
