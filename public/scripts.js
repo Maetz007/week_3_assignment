@@ -42,9 +42,8 @@ $("#equalBtn").css("background-color", "#FF7F42").on("click", function(){
 $("#reset").css("background-color", "#FF1122").on("click", function(){
   displayArray = "";
   resetValues();
-  document.getElementById("numDisplay").innerHTML = "Enter a number...";
-  document.getElementById("displayCalc").innerHTML = "<br>Answer is...<br>";
-
+  document.getElementById("numDisplay").innerHTML = "Enter a number..."; // clears numbers from display
+  document.getElementById("displayCalc").innerHTML = "<br>Answer is...<br>"; // clears display if answer is present
 }); // end reset button
 
 // function call to the server to recieve the X, Y, and Type information then returns the data
@@ -70,12 +69,13 @@ function numOutput(numToDisplay){
   document.getElementById("numDisplay").appendChild(newNumDisplay);
 } // end number display
 
+// displays final calculation from server
 function displayCalculation(finalCalc){
   var finalDisplay = document.createElement("div");
   finalDisplay.textContent = finalCalc;
   document.getElementById("displayCalc").innerHTML = "<br>Answer is...<br>";
   document.getElementById("displayCalc").appendChild(finalDisplay);
-}
+} // end display calc
 
 // parses arrays into clean, readable numbers while also setting a variable to number to be POSTed later
 function updateNumArrays(){
