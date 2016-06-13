@@ -11,14 +11,13 @@ app.listen(9001, "localhost", function() {
 app.use(express.static("public"));
 
 app.get("/", function(req, res) {
-  res.sendFile( path.resolve("public/index.html") );
+  res.sendFile( path.resolve("public/index.html"));
 });
 
-app.post("/calcPost", urlencodedParser, function(req, res) {
+app.post("/calcPost", urlencodedParser, function(req, res){
   x = parseInt(req.body.x);
   y = parseInt(req.body.y);
   type = parseInt(req.body.type);
-// console.log("inputs recieved " + x + y + type);
   var calcNum = returnCalc(x,y,type);
   res.send(calcNum.toString());
   res.end();
@@ -45,7 +44,7 @@ function returnCalc(x,y,type){
       output = x / y;
       break;
 
-    default: console.log("Not a function of this calculator");
+    default: alert("Not a function of this calculator");
   }
-  return Math.round(output);
+  return output.toFixed(2);
 }
