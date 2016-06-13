@@ -80,15 +80,15 @@ function displayCalculation(finalCalc){
 // parses arrays into clean, readable numbers while also setting a variable to number to be POSTed later
 function updateNumArrays(){
   arraySums = arraySums + numArray[arrayCounter]; // temp array that gets reset after calc chosen
-  displayArray = displayArray + numArray[arrayCounter];
+  displayArray = displayArray + numArray[arrayCounter]; // array that holds the total display
   arrayCounter++;
-} // end clean up of array display to remove commas
+} // end updateNumArrays
 
 // resets all the values to clean up either the number display or X variable content
 function resetValues(){
   numArray = [];
   arraySums = "";
   arrayCounter = 0;
-}
+} // end reset
 
 }); // end document ready
