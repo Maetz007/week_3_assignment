@@ -4,7 +4,7 @@ var path = require("path");
 var bodyParser=require("body-parser");
 var urlencodedParser = bodyParser.urlencoded( { extended: false } );
 
-app.listen(9001, "localhost", function() {
+app.listen(process.env.PORT || 9001, function() {
   console.log("Listening on port 9001... IT'S OVER 9000!!!");
 });
 
@@ -15,15 +15,15 @@ app.get("/", function(req, res) {
 });
 
 app.post("/calcPost", urlencodedParser, function(req, res){
-  x = parseInt(req.body.x);
+  x = parseInt(req.body.x); // receives X, Y, and TYPE inputs then parses them into numbers to be read in switch
   y = parseInt(req.body.y);
   type = parseInt(req.body.type);
-  var calcNum = returnCalc(x,y,type);
-  res.send(calcNum.toString());
+  var calcNum = returnCalc(x,y,type); // passes X,Y, and TYPE into swtich calculator
+  res.send(calcNum.toString()); // returns calculator function to POST req
   res.end();
 });
 
-function returnCalc(x,y,type){
+function returnCalc(x,y,type){  // takes the inputs and determines the calc to be done on the inputs received
   var output = 0;
 
   switch (type) {
